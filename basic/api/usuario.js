@@ -5,3 +5,5 @@ function salvar(req, res){
 function obter(req, res){
     res.send('Usuario > obter')
 }
+
+module.exports = {salvar,obter}
