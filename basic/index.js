@@ -2,15 +2,10 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
-app.post('/corpo',(req,res)=>{
-	let corpo =''
-	req.on('data',function(parte){
-			corpo += parte
-	})
+const usuarioApi = require('./api/usuario')
 
-	req.end('end',function(){
-		res.send(corpo)
-	})
-})
+app.post('/usuario', usuarioApi.salvar)
+app.get('/usuario', usuarioApi.obter)
+
 
 app.listen(3001)
